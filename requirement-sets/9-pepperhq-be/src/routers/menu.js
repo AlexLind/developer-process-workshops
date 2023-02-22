@@ -6,7 +6,6 @@ const router = Router();
 
 router.get("/", async (req, res) => {
     const menu = await getMenu();
-    console.log(titles, menu)
     // Map through menu and look at each product.id and see if it matches any of the titles.id, if it does add the title to the product
     menu.map((category) => {
         category.products.map((product) => {
@@ -17,8 +16,6 @@ router.get("/", async (req, res) => {
             })
         })
     })
-    console.log(menu)
-
     res.status(200).send(menu);
 });
 
